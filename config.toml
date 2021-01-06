@@ -1,4 +1,4 @@
-baseURL = "http://example.org/"
+baseURL = "/dapla-docs"
 languageCode = "en-us"
 title = "Dapla Docs"
 theme = "learn"
