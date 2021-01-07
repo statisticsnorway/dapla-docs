@@ -2,7 +2,7 @@
 
 Documentation website for the Dapla project.
 
-Served here: https://statisticsnorway.github.io/dapla-docs/
+Served here: https://statisticsnorway.github.io/dapla-docs
 
 The site is built using the [Hugo](https://gohugo.io/) static site generator and the [DocPort](https://themes.gohugo.io/hugo-theme-docport/).
 
@@ -12,6 +12,7 @@ The [`gh-pages`](https://github.com/statisticsnorway/dapla-docs/tree/gh-pages) b
 ## Publishing 
 
 Use the `publish.sh` script in order to build and publish a new version of the site, like so:
+
 
 ```sh
   ./publish.sh
