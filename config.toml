@@ -1,12 +1,42 @@
 baseURL = "https://statisticsnorway.github.io/dapla-docs"
 languageCode = "no-nb"
 title = "Dapla Docs"
-theme = "learn"
-builddrafts = true
-
-[params]
-disableLandingPageButton = true
-themeVariant = "green"
+theme = "docport"
+DefaultContentLanguage = "en"
+pygmentsCodeFences = true
+pygmentsStyle = "monokai"
 
 [outputs]
 home = [ "HTML", "RSS", "JSON"]
+
+
+# Site params
+# -----------------------------------------------------------------------------
+[params]
+color_main = "#737373"
+color_second = "#b30000"
+enableGitInfo = true
+ordersectionsby = "weight"
+
+
+# Top menu shotcuts
+# -----------------------------------------------------------------------------
+[[menu.shortcuts]]
+name = "Github"
+identifier = "ds"
+url = "https://github.com/statisticsnorway/dapla-docs"
+weight = 10
+
+
+# Code highlight configuration
+# -----------------------------------------------------------------------------
+[markup.highlight]
+codeFences = true
+guessSyntax = true
+hl_Lines = ""
+lineNoStart = 1
+lineNos = false
+lineNumbersInTable = true
+noClasses = true
+style = "monokai"
+tabWidth = 2
