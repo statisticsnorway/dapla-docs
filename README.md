@@ -4,20 +4,26 @@ Documentation website for the Dapla project.
 
 Served here: https://statisticsnorway.github.io/dapla-docs/
 
-The site is built using the [Hugo](https://gohugo.io/) static site generator and the [Learn theme](https://themes.gohugo.io/hugo-theme-learn/).
+The site is built using the [Hugo](https://gohugo.io/) static site generator and the [DocPort](https://themes.gohugo.io/hugo-theme-learn/).
 
 The [`gh-pages`](https://github.com/statisticsnorway/dapla-docs/tree/gh-pages) branch contains the published content while the `master` branch holds all Hugo internal files, etc 
 
 
 ## Publishing 
 
-Use the `publish.sh` script in order to build and publish a new version of the documentation site, like so:
+Use the `publish.sh` script in order to build and publish a new version of the site, like so:
 
 ```sh
   ./publish.sh
 ```
 
-Notice that only non-draft documents will be included in the built site. This is intentional. If you mean to include drafts, edit the publish script and 
+Notice that only non-draft documents will be included in the built site. This is intentional. If you mean to include drafts, edit the publish script and use:
+
+```
+hugo -D
+```
+
+to generate the site.
 
 Reference:
 
@@ -30,7 +36,7 @@ You will need to have hugo installed. Take a look at [this short quick start tut
 
 ### Customization
 
-https://learn.netlify.app/en/basics/style-customization/
+https://docport.netlify.app/content-and-customization/
 
 ### Running locally
 
