@@ -1,4 +1,12 @@
-baseURL = "/dapla-docs"
-languageCode = "en-us"
+baseURL = "https://statisticsnorway.github.io/dapla-docs"
+languageCode = "no-nb"
 title = "Dapla Docs"
 theme = "learn"
+builddrafts = true
+
+[params]
+disableLandingPageButton = true
+themeVariant = "green"
+
+[outputs]
+home = [ "HTML", "RSS", "JSON"]
