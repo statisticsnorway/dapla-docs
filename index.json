@@ -1,0 +1,36 @@
+[
+{
+	"uri": "https://statisticsnorway.github.io/dapla-docs/data-ingestion/",
+	"title": "Data Ingestion",
+	"tags": [],
+	"description": "",
+	"content": "Data Ingestion landing page\n"
+},
+{
+	"uri": "https://statisticsnorway.github.io/dapla-docs/data-ingestion/data-conversion/",
+	"title": "Data Conversion",
+	"tags": [],
+	"description": "",
+	"content": "convertion landing page\n"
+},
+{
+	"uri": "https://statisticsnorway.github.io/dapla-docs/data-loss-prevention/",
+	"title": "Data Loss Prevention",
+	"tags": [],
+	"description": "",
+	"content": "DLP landing page\n"
+},
+{
+	"uri": "https://statisticsnorway.github.io/dapla-docs/data-loss-prevention/pseudonymization/",
+	"title": "Pseudonymization",
+	"tags": [],
+	"description": "",
+	"content": "Pseudonymization landing page\n"
+},
+{
+	"uri": "https://statisticsnorway.github.io/dapla-docs/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": "Architecture\n Context Diagram (c4model - level 1)  Data Ingestion\n  Data Collection\n  Data Conversion\n  Getting started with a new Converter App\n  Managing a Converter App in production\n  Development environment\n  Converter App Configuration Reference\n  Rawdata Converter Core\n Component diagram (c4model - level 3)    Rawdata Converter Applications\n Container diagram that shows the converter applications (c4model - level 2)   Rawdata Converter CSV Rawdata Converter Sirius Rawdata Converter FREG      Data Loss Prevention\n Pseudonymization  "
+}]
