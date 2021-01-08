@@ -4,7 +4,7 @@
 <html>
   <head>
     <title>
-	Data Conversion :: Dapla Docs
+	Creating a new Converter App :: Dapla Docs
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -13,7 +13,7 @@
 
 
 
-<title>Data Conversion :: Dapla Docs</title>
+<title>Creating a new Converter App :: Dapla Docs</title>
 
 <link rel="shortcut icon" href='/dapla-docs/images/favicon.png' type="image/x-icon" />
 
@@ -50,7 +50,7 @@
     
   </head>
 
-  <body data-url="/dapla-docs/data-ingestion/data-conversion/"
+  <body data-url="/dapla-docs/data-ingestion/data-conversion/new-converter-app/"
 
   class="">
 
@@ -159,7 +159,7 @@
         <ul>
               
 
-    <li data-nav-id="https://statisticsnorway.github.io/dapla-docs/data-ingestion/data-conversion/" class="dd-item parent active haschildren
+    <li data-nav-id="https://statisticsnorway.github.io/dapla-docs/data-ingestion/data-conversion/" class="dd-item parent haschildren
         item_level_$level
         ">
 
@@ -190,7 +190,7 @@
     </li>
               
 
-    <li data-nav-id="https://statisticsnorway.github.io/dapla-docs/data-ingestion/data-conversion/new-converter-app/" class="dd-item
+    <li data-nav-id="https://statisticsnorway.github.io/dapla-docs/data-ingestion/data-conversion/new-converter-app/" class="dd-item parent active
         item_level_$level
         ">
 
@@ -269,6 +269,9 @@
 		
   
   	
+		
+  
+  	
 	<li >
       <a class="text-link" href="https://statisticsnorway.github.io/dapla-docs">
         Home
@@ -284,9 +287,17 @@
 	
   	
   
+    <li class="">
+      <a class="text-link" href="/dapla-docs/data-ingestion/data-conversion/">
+        Data Conversion
+      </a>
+    </li>
+	
+  	
+  
     <li class="active">
       
-        Data Conversion
+        Creating a new Converter App
       
     </li>
 
@@ -307,7 +318,7 @@
 		
 
 		
-			<h1>Data Conversion</h1>
+			<h1>Creating a new Converter App</h1>
         
 
 		
@@ -325,7 +336,13 @@
   			Jump to Section
   			<i style=";" class="fas fa-chevron-right"></i>
 		</span>
-		<nav id="TableOfContents"></nav>
+		<nav id="TableOfContents">
+  <ul>
+    <li><a href="#generate-a-rawdata-converter-app">Generate a rawdata converter app</a></li>
+    <li><a href="#register-the-converter-app">Register the converter app</a></li>
+    <li><a href="#deploy-the-converter-app">Deploy the converter app</a></li>
+  </ul>
+</nav>
 	</div>
 	
 	
@@ -336,7 +353,38 @@
 
 
 	<div class="content">
-	    <p>Data conversion landing page</p>
+	    
+
+<div class="notices primary">
+	<p>Make sure you have configured your <a href="https://statisticsnorway.github.io/dapla-docs/data-ingestion/data-conversion/development-environment/#configuring-your-development-environment">development environment</a>.</p>
+
+</div>
+
+<h2 ref="generate-a-rawdata-converter-app" >Generate a rawdata converter app</h2><a class="anchor" id="generate-a-rawdata-converter-app"></a>
+<p>From within your <code>rawdata-converter-project</code> workspace, use the <a href="https://github.com/statisticsnorway/cookiecutter-rawdata-converter-app">cookiecutter-rawdata-converter-app</a> seed to quickly generate a starting base for you new rawdata-converter app. <a href="https://cookiecutter.readthedocs.io/">Cookiecutter</a> is a scaffolding tool that will prompt for information and use this to generate a new project. Refer to the README for more instructions on how to install and use cookiecutter.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-sh" data-lang="sh">$ cd $SSB_DEV/rawdata-converter-project
+$ cookiecutter gh:statisticsnorway/cookiecutter-rawdata-converter-app
+
+converter_name <span style="color:#f92672">[</span>SomeName<span style="color:#f92672">]</span>: Cheese
+project_name <span style="color:#f92672">[</span>rawdata-converter-app-cheese<span style="color:#f92672">]</span>:
+deployment_name <span style="color:#f92672">[</span>rawdata-converter-cheese<span style="color:#f92672">]</span>:
+project_slug <span style="color:#f92672">[</span>cheese<span style="color:#f92672">]</span>:
+base_package <span style="color:#f92672">[</span>no.ssb.rawdata.converter.app<span style="color:#f92672">]</span>:
+package_dir <span style="color:#f92672">[</span>no/ssb/rawdata/converter/app<span style="color:#f92672">]</span>:
+rawdata_shortname <span style="color:#f92672">[</span>somerawdata<span style="color:#f92672">]</span>: cheesedata
+micronaut_version <span style="color:#f92672">[</span>2.1.4<span style="color:#f92672">]</span>:
+rawdata_converter_version <span style="color:#f92672">[</span>0.6.7<span style="color:#f92672">]</span>:
+
+</code></pre></div><p>The generated project is a fully operative Micronaut application. It provides building blocks common for most converter applications, and it relies on the common converter application infrastructure code from <a href="https://github.com/statisticsnorway/rawdata-converter-coredux">rawdata-converter-coredux</a>.</p>
+<p>Your main task at hand should be to provide an implementation of the <a href="https://github.com/statisticsnorway/rawdata-converter-coredux/blob/master/src/main/java/no/ssb/rawdata/converter/core/convert/RawdataConverter.java">RawdataConverter</a> interface. Your implementation will receive <code>RawdataMessage</code> objects containing data specific for some data source (e.g. some XML data structure), and the <code>RawdataConverter</code> should transform this data into Avro <code>GenericRecord</code>s.</p>
+<p>Your generated converter app provides you with starting point for your implentation. Have a look at other rawdata converter applications for inspiration on how to write the actual <em>conversion code</em>.</p>
+<p>Refer to the <a href="">converter app configuration reference</a> section for a description of the misc application configuration parameters.</p>
+<h2 ref="register-the-converter-app" >Register the converter app</h2><a class="anchor" id="register-the-converter-app"></a>
+<p>When you&rsquo;re ready, add the newly generated converter app to <a href="https://github.com/organizations/statisticsnorway/repositories/new">github</a> and register it in the <a href="https://github.com/statisticsnorway/rawdata-converter-project/blob/master/repos.txt">repos.txt</a> and <a href="https://github.com/statisticsnorway/rawdata-converter-project/blob/master/pom.xml">pom.xml</a>. This will allow other dapla developers to discover and work with the new converter app in the <code>rawdata-converter-project</code> workspace.</p>
+<p>Make sure to tag your new github repo with the <code>dapla</code> and <code>rawdata-converter</code> tags.</p>
+<h2 ref="deploy-the-converter-app" >Deploy the converter app</h2><a class="anchor" id="deploy-the-converter-app"></a>
+<p>At the root of the generated rawdata converter app is a directory (<code>./bip</code>) containing guidance and scripts that can help to get the application deployed into the dapla application cluster.</p>
+<p>Files under <code>./bip/platform-dev</code> is a starting point for config connector files that can be more or less copied into the <a href="https://github.com/statisticsnorway/platform-dev">platform-dev</a> repo. Of course, you will need to understand the details of all these files before continuing.</p>
 
 		</div>
 
@@ -347,10 +395,10 @@
 
 	 
 	<div class="chevrons">
-		<a class="next" href="/dapla-docs/data-ingestion/data-conversion/development-environment/" title="Working with Rawdata Converter Apps" style="margin-right: 0px;">
+		<a class="next" href="/dapla-docs/data-loss-prevention/" title="Data Loss Prevention" style="margin-right: 0px;">
             <div>
                 <p>Next page</p>
-                <label>Working with Rawdata Converter Apps</label>
+                <label>Data Loss Prevention</label>
             </div>
             <i class="fas fa-arrow-right" style="font-size: 1.7em"></i></a>
 	</div>
@@ -375,10 +423,16 @@
     <label><i class="fas fa-align-right"></i>&nbsp;&nbsp;What&#39;s on this page</label>
     <nav>
         <ul >
-            <li><a href="/dapla-docs/data-ingestion/data-conversion/">Data Conversion</a></li>
+            <li><a href="/dapla-docs/data-ingestion/data-conversion/new-converter-app/">Creating a new Converter App</a></li>
         </ul>
     </nav>
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#generate-a-rawdata-converter-app">Generate a rawdata converter app</a></li>
+    <li><a href="#register-the-converter-app">Register the converter app</a></li>
+    <li><a href="#deploy-the-converter-app">Deploy the converter app</a></li>
+  </ul>
+</nav>
 </div>
 
 		

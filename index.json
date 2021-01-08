@@ -1,5 +1,19 @@
 [
 {
+	"uri": "https://statisticsnorway.github.io/dapla-docs/data-ingestion/data-conversion/development-environment/",
+	"title": "Working with Rawdata Converter Apps",
+	"tags": [],
+	"description": "",
+	"content": "Configuring your development environment rawdata-converter-project Although not mandatory, it is recommended that you work with rawdata-converter apps via the rawdata-converter-project. It facilitates a development environment for working with multiple standalone Rawdata Converter repos in a common context. This makes it easy to make changes and debug code across of rawdata converter components.\n$ git clone git@github.com:statisticsnorway/rawdata-converter-project.git Then use make update-all to pull down all registered rawdata-converter-apps (listed in the repos.txt file).\nLater, use make status-all if you want to check for remote updates to any of the associated rawdata-converter repositories.\nOpen the rawdata-converter-project pom.xml in your favorite IDE.\n"
+},
+{
+	"uri": "https://statisticsnorway.github.io/dapla-docs/data-ingestion/data-conversion/new-converter-app/",
+	"title": "Creating a new Converter App",
+	"tags": [],
+	"description": "",
+	"content": " Make sure you have configured your development environment.\n Generate a rawdata converter app From within your rawdata-converter-project workspace, use the cookiecutter-rawdata-converter-app seed to quickly generate a starting base for you new rawdata-converter app. Cookiecutter is a scaffolding tool that will prompt for information and use this to generate a new project. Refer to the README for more instructions on how to install and use cookiecutter.\n$ cd $SSB_DEV/rawdata-converter-project $ cookiecutter gh:statisticsnorway/cookiecutter-rawdata-converter-app converter_name [SomeName]: Cheese project_name [rawdata-converter-app-cheese]: deployment_name [rawdata-converter-cheese]: project_slug [cheese]: base_package [no.ssb.rawdata.converter.app]: package_dir [no/ssb/rawdata/converter/app]: rawdata_shortname [somerawdata]: cheesedata micronaut_version [2.1.4]: rawdata_converter_version [0.6.7]: The generated project is a fully operative Micronaut application. It provides building blocks common for most converter applications, and it relies on the common converter application infrastructure code from rawdata-converter-coredux.\nYour main task at hand should be to provide an implementation of the RawdataConverter interface. Your implementation will receive RawdataMessage objects containing data specific for some data source (e.g. some XML data structure), and the RawdataConverter should transform this data into Avro GenericRecords.\nYour generated converter app provides you with starting point for your implentation. Have a look at other rawdata converter applications for inspiration on how to write the actual conversion code.\nRefer to the converter app configuration reference section for a description of the misc application configuration parameters.\nRegister the converter app When you\u0026rsquo;re ready, add the newly generated converter app to github and register it in the repos.txt and pom.xml. This will allow other dapla developers to discover and work with the new converter app in the rawdata-converter-project workspace.\nMake sure to tag your new github repo with the dapla and rawdata-converter tags.\nDeploy the converter app At the root of the generated rawdata converter app is a directory (./bip) containing guidance and scripts that can help to get the application deployed into the dapla application cluster.\nFiles under ./bip/platform-dev is a starting point for config connector files that can be more or less copied into the platform-dev repo. Of course, you will need to understand the details of all these files before continuing.\n"
+},
+{
 	"uri": "https://statisticsnorway.github.io/dapla-docs/data-ingestion/",
 	"title": "Data Ingestion",
 	"tags": [],

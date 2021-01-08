@@ -4,7 +4,7 @@
 <html>
   <head>
     <title>
-	Data Conversion :: Dapla Docs
+	Working with Rawdata Converter Apps :: Dapla Docs
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -13,7 +13,7 @@
 
 
 
-<title>Data Conversion :: Dapla Docs</title>
+<title>Working with Rawdata Converter Apps :: Dapla Docs</title>
 
 <link rel="shortcut icon" href='/dapla-docs/images/favicon.png' type="image/x-icon" />
 
@@ -50,7 +50,7 @@
     
   </head>
 
-  <body data-url="/dapla-docs/data-ingestion/data-conversion/"
+  <body data-url="/dapla-docs/data-ingestion/data-conversion/development-environment/"
 
   class="">
 
@@ -159,7 +159,7 @@
         <ul>
               
 
-    <li data-nav-id="https://statisticsnorway.github.io/dapla-docs/data-ingestion/data-conversion/" class="dd-item parent active haschildren
+    <li data-nav-id="https://statisticsnorway.github.io/dapla-docs/data-ingestion/data-conversion/" class="dd-item parent haschildren
         item_level_$level
         ">
 
@@ -175,7 +175,7 @@
         <ul>
               
 
-    <li data-nav-id="https://statisticsnorway.github.io/dapla-docs/data-ingestion/data-conversion/development-environment/" class="dd-item
+    <li data-nav-id="https://statisticsnorway.github.io/dapla-docs/data-ingestion/data-conversion/development-environment/" class="dd-item parent active
         item_level_$level
         ">
 
@@ -269,6 +269,9 @@
 		
   
   	
+		
+  
+  	
 	<li >
       <a class="text-link" href="https://statisticsnorway.github.io/dapla-docs">
         Home
@@ -284,9 +287,17 @@
 	
   	
   
+    <li class="">
+      <a class="text-link" href="/dapla-docs/data-ingestion/data-conversion/">
+        Data Conversion
+      </a>
+    </li>
+	
+  	
+  
     <li class="active">
       
-        Data Conversion
+        Working with Rawdata Converter Apps
       
     </li>
 
@@ -307,7 +318,7 @@
 		
 
 		
-			<h1>Data Conversion</h1>
+			<h1>Working with Rawdata Converter Apps</h1>
         
 
 		
@@ -325,7 +336,15 @@
   			Jump to Section
   			<i style=";" class="fas fa-chevron-right"></i>
 		</span>
-		<nav id="TableOfContents"></nav>
+		<nav id="TableOfContents">
+  <ul>
+    <li><a href="#configuring-your-development-environment">Configuring your development environment</a>
+      <ul>
+        <li><a href="#rawdata-converter-project">rawdata-converter-project</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 	</div>
 	
 	
@@ -336,7 +355,13 @@
 
 
 	<div class="content">
-	    <p>Data conversion landing page</p>
+	    <h2 ref="configuring-your-development-environment" >Configuring your development environment</h2><a class="anchor" id="configuring-your-development-environment"></a>
+<h3 ref="rawdata-converter-project" >rawdata-converter-project</h3><a class="anchor" id="rawdata-converter-project"></a>
+<p>Although not mandatory, it is recommended that you work with rawdata-converter apps via the <a href="https://github.com/statisticsnorway/rawdata-converter-project">rawdata-converter-project</a>. It facilitates a development environment for working with multiple standalone Rawdata Converter repos in a common context. This makes it easy to make changes and debug code across of rawdata converter components.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-sh" data-lang="sh">$ git clone git@github.com:statisticsnorway/rawdata-converter-project.git
+</code></pre></div><p>Then use <code>make update-all</code> to pull down all registered rawdata-converter-apps (listed in the <code>repos.txt</code> file).</p>
+<p>Later, use <code>make status-all</code> if you want to check for remote updates to any of the associated rawdata-converter repositories.</p>
+<p>Open the rawdata-converter-project <code>pom.xml</code> in your favorite IDE.</p>
 
 		</div>
 
@@ -347,10 +372,10 @@
 
 	 
 	<div class="chevrons">
-		<a class="next" href="/dapla-docs/data-ingestion/data-conversion/development-environment/" title="Working with Rawdata Converter Apps" style="margin-right: 0px;">
+		<a class="next" href="/dapla-docs/data-ingestion/data-conversion/new-converter-app/" title="Creating a new Converter App" style="margin-right: 0px;">
             <div>
                 <p>Next page</p>
-                <label>Working with Rawdata Converter Apps</label>
+                <label>Creating a new Converter App</label>
             </div>
             <i class="fas fa-arrow-right" style="font-size: 1.7em"></i></a>
 	</div>
@@ -375,10 +400,18 @@
     <label><i class="fas fa-align-right"></i>&nbsp;&nbsp;What&#39;s on this page</label>
     <nav>
         <ul >
-            <li><a href="/dapla-docs/data-ingestion/data-conversion/">Data Conversion</a></li>
+            <li><a href="/dapla-docs/data-ingestion/data-conversion/development-environment/">Working with Rawdata Converter Apps</a></li>
         </ul>
     </nav>
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#configuring-your-development-environment">Configuring your development environment</a>
+      <ul>
+        <li><a href="#rawdata-converter-project">rawdata-converter-project</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 </div>
 
 		
